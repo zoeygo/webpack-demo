@@ -30,7 +30,18 @@ module.exports = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                     },
-                    'css-loader',
+                    // 'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            // modules: {
+                            //     auto: true, 
+                            //     localIdentName: "[path][name]__[local]--[hash:base64:5]",
+                            // },
+                            modules: true, // 加上后import styles from './index.less'写法ok
+                            esModule: true,
+                        },
+                    },
                     'postcss-loader',
                     // 当解析antd.less，必须写成下面格式，否则会报Inline JavaScript is not enabled错误
                     { loader: 'less-loader', options: { lessOptions: { javascriptEnabled: true } } },

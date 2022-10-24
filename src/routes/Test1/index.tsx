@@ -1,13 +1,14 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './index.less';
+// const styles = require('./index.less');
+import styles from './index.less';
 
 const Test1 = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="content">
+        <div className={styles.content}>
             <div onClick={() => { navigate('/test2'); }}>
                 点击跳转到Test2
             </div>
