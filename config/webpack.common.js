@@ -8,8 +8,9 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin') // 编译进度
 module.exports = {
     resolve: {
         // 配置路径别名
+        extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
         alias: {
-            '@': path.resolve(__dirname, './src'),
+            "@": path.resolve(__dirname, '../src'),
         },
         mainFiles: ['index', 'main'],
     },

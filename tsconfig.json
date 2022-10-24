@@ -8,5 +8,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*", "tsconfig.json", "typings.d.ts"]
+  "include": ["src/**/*", "tsconfig.json", "typings.d.ts", "src/config/router.js"]
 }
