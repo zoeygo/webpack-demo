@@ -1,7 +1,10 @@
+@import "@/utils/variables.less";
+
 .content {
-    background-color: #fff;
+    background-color: @primary-color;
 }
 
-#test1 {
+:global(#test1) {
+    // 加global不会有hash后缀
     color: green;
 }
