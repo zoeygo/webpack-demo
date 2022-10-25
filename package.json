@@ -38,12 +38,19 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "@babel/preset-typescript": "^7.18.6",
+    "@types/jest": "^29.2.0",
+    "@types/node": "^18.11.5",
+    "@types/react": "^18.0.22",
+    "@types/react-dom": "^18.0.7",
     "antd": "^4.23.6",
+    "axios": "^1.1.3",
     "husky": "^7.0.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router": "^6.4.2",
-    "react-router-dom": "^6.4.2"
+    "react-router-dom": "^6.4.2",
+    "typescript": "^4.8.4"
   },
   "scripts": {
     "start": "webpack serve --config config/webpack.dev.js",

@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { memo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import styles from './index.less';
 
-const Test1 = () => {
+const Test1: React.FC<any> = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -21,4 +21,4 @@ const Test1 = () => {
     );
 };
 
-export default Test1;
+export default memo(Test1);

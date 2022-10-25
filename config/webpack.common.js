@@ -20,7 +20,24 @@ module.exports = {
                 // test: /\.jsx?$/,
                 test: /\.(js|mjs|jsx|ts|tsx)$/,
                 exclude: /node_modules/,
-                use: 'babel-loader',
+                // use: 'babel-loader',
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                "@babel/preset-env",
+                                [
+                                    "@babel/preset-react",
+                                    {
+                                        runtime: 'automatic',
+                                    }
+                                ],
+                                "@babel/preset-typescript",
+                            ],
+                        },
+                    },
+                ],
             },
             {
                 // style-loader会将生成的css添加到html的header标签内形成内敛样式，这显然不是我们想要的。
