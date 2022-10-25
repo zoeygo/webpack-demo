@@ -34,17 +34,21 @@ module.exports = {
                     {
                         loader: 'css-loader',
                         options: {
-                            // modules: {
-                            //     auto: true, 
-                            //     localIdentName: "[path][name]__[local]--[hash:base64:5]",
-                            // },
-                            modules: true, // 加上后import styles from './index.less'写法ok
-                            esModule: true,
+                            // modules: true, // 启用css module，加上后import styles from './index.less'写法ok
+                            modules: {
+                                // 加上auto: true编译报错
+                                // 编译后的类名
+                                localIdentName: "index__[local]__[hash:base64:5]",
+                            },
+                            // esModule: true,
                         },
                     },
                     'postcss-loader',
                     // 当解析antd.less，必须写成下面格式，否则会报Inline JavaScript is not enabled错误
-                    { loader: 'less-loader', options: { lessOptions: { javascriptEnabled: true } } },
+                    {
+                        loader: 'less-loader',
+                        options: { lessOptions: { javascriptEnabled: true } },
+                    },
                 ],
             },
             {
