@@ -40,9 +40,28 @@ module.exports = {
                 ],
             },
             {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: false, // 禁用css module，antd.css在css_module下不生效
+                        },
+                    },
+                    'postcss-loader',
+                    {
+                        loader: 'less-loader',
+                        options: { lessOptions: { javascriptEnabled: true } },
+                    },
+                ],
+            },
+            {
                 // style-loader会将生成的css添加到html的header标签内形成内敛样式，这显然不是我们想要的。
                 // 所以这里我们使用MiniCssExtractPlugin.loader的作用就是拆分生成的css成为独立的css文件。
-                test: /\.(le|c)ss$/,
+                test: /\.less$/,
                 use: [
                     {
                         loader: MiniCssExtractPlugin.loader,

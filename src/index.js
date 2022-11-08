@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 
 import { routerItems } from './config/router'
 
+import '../node_modules/antd/dist/antd.css'
+
 // loading页面
 const Loading = () => (
   <>
