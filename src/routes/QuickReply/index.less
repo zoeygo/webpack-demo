@@ -1,10 +1,6 @@
 .quick-reply {
+  padding: 1rem;
   :global {
-    .drag-hr {
-      color: #e0e0e0;
-      width: 30rem;
-    }
-
     .quick-reply-content {
       width: 30rem;
       height: 30rem;
@@ -13,11 +9,25 @@
       &-input {
         width: 100%;
         height: 20rem;
+        padding: 1rem;
+        overflow-y: auto;
+      }
+      &-input:empty::after {
+        content: '请输入';
+        color: #bbb;
+      }
+      &-input:focus {
+        content: none;
+      }
+      &-input:focus-visible {
+        outline: none;
       }
 
       &-tag {
         width: 100%;
         height: 10rem;
+        border-top: 1px solid #000;
+        padding: 1rem;
       }
     }
   }
