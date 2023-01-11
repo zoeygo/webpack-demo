@@ -15,7 +15,7 @@ interface TagProps {
 
 const QuickReply: React.FC = () => {
     const inputRef: any = useRef(null);
-    const tagText: TagProps[] = [{ content: '标签1' }, { content: '标签2' }];
+    const tagText: TagProps[] = [{ content: '标签1' }, { content: '标签2' }, {content: '标签3' }, { content: '标签4' }];
 
     // 添加tag标签到输入框
     const addTag = useCallback((value: string) => {

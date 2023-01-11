@@ -10,7 +10,9 @@ module.exports = {
       // 添加`prettier`拓展 用于和`prettier`冲突时覆盖`eslint`规则
       'prettier',
     ],
+    parser: '@typescript-eslint/parser',
     parserOptions: {
+      parser: 'babel-eslint',
       ecmaFeatures: {
         jsx: true,
       },
