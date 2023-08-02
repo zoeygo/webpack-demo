@@ -1,0 +1,27 @@
+{
+    "name": "chrome-plugin-demo",
+    "description": "Build an Extension!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/", "https://*/"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["sdk.js"],
+            "matches": ["<all_urls>"]
+        }
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": ["activeTab", "history", "sessions", "storage", "notifications"],
+    "devtools_page": "Panel/devtools_page.html"
+}
