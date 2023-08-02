@@ -23,5 +23,5 @@
         "service_worker": "background.js"
     },
     "permissions": ["activeTab", "history", "sessions", "storage", "notifications"],
-    "devtools_page": "Panel/devtools_page.html"
+    "devtools_page": "devtools_page.html"
 }

@@ -11,7 +11,15 @@
 <body>
     <h1>chrome-plugin-test</h1>
     <p id="content">content</p>
+    <input id="input1" />
+    <input id="input2" />
+    <div>
+        答案
+        <span id="ans"></span>
+    </div>
+    <button id="button">获取答案</button>
     <script src="content.js"></script>
+    <!-- 直接写着content.js获取不到popup页面元素，写在popup.js计算生效 -->
+    <script src="popup.js"></script>
 </body>
 </html>
-

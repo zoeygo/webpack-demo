@@ -19,3 +19,15 @@ https://doc.yilijishu.info/chrome/devtools_panels.html
 <!-- 扩展面板 -->
 "devtools_page": ""
 options_page: 选项页面
+
+亮点
+弹窗拖拽--加入组件库
+图形验证--加入组件库
+快捷回复--加入组件库
+iframe加载完后定位
+跨页通信
+多tab轮询优化---websocket
+富文本目录解析定位
+参与过开源项目c7n---脱敏组件
+
+

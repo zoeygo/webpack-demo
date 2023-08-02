@@ -1,6 +1,6 @@
 // 修改dom信息
 if (document.getElementById("s_top_wrap")) {
-    document.getElementById("s_top_wrap").style.background = "white";
+    document.getElementById("s_top_wrap").style.background = "blue";
 }
 
 /**
@@ -21,7 +21,7 @@ if (chrome.browserAction) {
 //     file: 'content.js',
 // });
 
-// 向页面注入script
+// 向页面注入sdk.js
 const script = document.createElement('script');
 script.src = chrome.runtime.getURL("sdk.js");
 document.body.appendChild(script);
@@ -42,9 +42,10 @@ chrome.runtime.sendMessage('get-user-data', (response) => {
     initializeUI(response);
 });
 
-// 从后台脚本向内容脚本发送请求
+// 从后台脚本向内容脚本发送请求background->content
+// 如果在content页刷新，一半概率不触发，报错接收端不存在。新开tab页可触发
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    console.log('sender', sender, request);
+    console.log('sender===', sender, request);
     sendResponse(request);
     // 修改dom
     document.querySelector("#s-usersetting-top").innerText = '0801';

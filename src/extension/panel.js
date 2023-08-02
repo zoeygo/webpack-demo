@@ -1,3 +1,4 @@
+// jquery按钮
 document.getElementById("check_jquery").addEventListener("click", function () {
     chrome.devtools.inspectedWindow.eval(
         "jQuery.fn.jquery",
@@ -11,8 +12,14 @@ document.getElementById("check_jquery").addEventListener("click", function () {
     );
 });
 
+// resource按钮
 document.getElementById("get_all_resources").addEventListener("click", function () {
     chrome.devtools.inspectedWindow.getResources(function (resources) {
         console.log(resources);
     });
+});
+
+// 获取请求体
+chrome.devtools.network.onRequestFinished.addListener(res => {
+    console.log('请求体:', res);
 });

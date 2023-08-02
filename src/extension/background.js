@@ -23,11 +23,19 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     }
 });
 
-// 从后台脚本向内容脚本发送请求
+// 从后台脚本向内容脚本发送请求background->content
 let count = 0;
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     console.log('tabs[0].id===', tabs[0].id);
     chrome.tabs.sendMessage(tabs[0].id, { number: ++count }, function (response) {
         console.log("background to content,number", response);
     })
+});
+
+// popup向background发送消息
+const add = (val1, val2) => val1 + val2;
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    const { val1, val2 } = request;
+    // 2.收到信息并返回处理后的信息
+    sendResponse({ res: add(val1, val2) });
 });
