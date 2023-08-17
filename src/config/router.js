@@ -1,16 +1,18 @@
 import React from 'react'
+import Menu from '@/routes/Menu'
 import Test1 from '@/routes/Test1'
 import Test2 from '@/routes/Test2'
 import Cabbage from '@/routes/Cabbage'
 import QuickReply from '@/routes/QuickReply'
-import Swipe from '@/routes/Swipe';
-import Curry from '@/routes/Curry';
+import Swipe from '@/routes/Swipe'
+import Curry from '@/routes/Curry'
+import Promise from '@/routes/Promise'
 
 export const routerItems = [
   {
     path: '/',
-    element: <Curry />,
-    redirect: '/Curry',
+    element: <Menu />,
+    redirect: '/Menu',
   },
   {
     path: '/test1',
@@ -37,5 +39,10 @@ export const routerItems = [
   {
     path: '/curry',
     element: <Curry />,
+  },
+  // 手写promise
+  {
+    path: '/promise',
+    element: <Promise />,
   },
 ]
