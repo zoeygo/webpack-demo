@@ -187,6 +187,8 @@ MyPromise.prototype.then = function resolveThen(onFulfilled, onRejected) {
     // this.onFulfilledCallbacks.push(realOnFulfilled);
     // this.onRejectedCallbacks.push(realOnRejected);
     const promise2 = new MyPromise(function a(resolve, reject) {
+      // pending状态，将resolve和reject分别存进数组
+      // 执行到then且状态为pending时，push进数组，等fn执行完成后开始执行
       this.onFulfilledCallbacks.push(function f() {
         setTimeout(function a() {
           try {
