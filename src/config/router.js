@@ -4,7 +4,7 @@ import Test1 from '@/routes/Test1'
 import Test2 from '@/routes/Test2'
 import Cabbage from '@/routes/Cabbage'
 import QuickReply from '@/routes/QuickReply'
-import Swipe from '@/routes/Swipe'
+import Swipe from '@/routes/Swipe/demo'
 import Curry from '@/routes/Curry'
 import Promise from '@/routes/Promise'
 
