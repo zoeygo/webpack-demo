@@ -1,0 +1,78 @@
+.swipe-container {
+    margin: 0 75px;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    :global {
+      .swipe-box {
+        display: flex;
+        .swipe-item {
+          position: relative;
+          background-color: #fff;
+          flex: 0 0 auto;
+          text-align: center;
+          padding: 20px;
+          > img {
+            width: calc(100% - 40px);
+            height: calc(100% - 68px);
+          }
+          &-last {
+            margin-right: 0 !important;
+          }
+          &-name {
+            position: absolute;
+            bottom: 10px;
+            color: #000;
+            font-size: 18px;
+            text-align: center;
+            width: calc(100% - 40px);
+            margin-bottom: 20px;
+          }
+          &-border {
+            border: 1px solid #eee;
+          }
+          &-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+      }
+      .swipe-arrow {
+        width: 100%;
+        height: 100%;
+        display: none;
+        position: absolute;
+        align-items: center;
+        &-left,
+        &-right {
+          z-index: 100;
+          color: #000;
+          width: 50px;
+          height: 50px;
+          text-align: center;
+          line-height: 46px;
+          border-radius: 5px;
+          background-color: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
+          :global {
+            .icon {
+              font-size: 36px;
+            }
+          }
+        }
+        &-right {
+          color: #000;
+          margin-left: auto;
+        }
+      }
+    }
+  }
+  .swipe-container:hover {
+    :global {
+      .swipe-arrow {
+        display: flex !important;
+      }
+    }
+  }
+  
