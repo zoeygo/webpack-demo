@@ -8,7 +8,7 @@ import React, { useState, useEffect, useRef } from 'react'
 interface propsValue {
   num: Number;
 }
-
+// git 测试
 // class组件的实现
 function Test(props: propsValue) {
   const { num } = props
