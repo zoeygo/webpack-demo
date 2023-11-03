@@ -1,4 +1,4 @@
-import React, { memo, useEffect, useState, useCallback } from 'react'
+import React, { memo, useEffect, useState, useCallback, useRef } from 'react'
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import styles from './index.less'
 
@@ -17,6 +17,7 @@ interface SwipeProps {
   autoplay?: boolean // 是否自动切换
   duration?: number // 自动切换动画时间,默认2000ms
   loop?: boolean // 无缝轮播，默认true
+  swipeKey?: string // 轮播标识，防止一个页面多个轮播，出现id重复的情况。不传值则取时间戳
 }
 
 const Swipe = (props: SwipeProps) => {
@@ -30,13 +31,12 @@ const Swipe = (props: SwipeProps) => {
     autoplay = false,
     duration = 2000,
     loop = true,
+    swipeKey = new Date().valueOf(),
   } = props
-
+  const swipeRef = useRef(null)
   const [imgArr, setImgArr] = useState(imgUrl)
   const [step, setStep] = useState(0)
   const [autoFlag, setAutoFlag] = useState(autoplay)
-  // 轮播标识，防止一个页面多个轮播，出现id重复的情况
-  const [swipeKey] = useState(new Date().valueOf())
   // 定时器对象
   let timer = {}
 
@@ -45,7 +45,15 @@ const Swipe = (props: SwipeProps) => {
     // 无缝轮播且图片数量大于轮播可视区图片数量时，额外拷贝数组
     imgClone =
       (loop || autoplay) && imgUrl.length > showNum ? imgClone.concat(imgUrl, imgUrl) : imgClone.concat([], imgUrl)
-    setImgArr(imgClone)
+    /**
+     * 数组 a 测试用
+     * 给拷贝的图片加上命名便于查看变更
+     */
+    const a: any[] = []
+    imgClone.forEach((item, index) => {
+      a.push({ ...item, name: index > 6 ? `2-${index - 6}` : index + 1 })
+    })
+    setImgArr(a)
   }, [])
 
   useEffect(() => {
@@ -63,23 +71,19 @@ const Swipe = (props: SwipeProps) => {
 
   const handlePre = useCallback(() => {
     let value: number = step - 1
-    const dom = document.getElementById(`swipe-box_${swipeKey}`)
     if (value === -1) {
       // 此时数组结构如下：[1,2,3,4,5,6,7,1,2,3,4,5,6,7]
       value = imgUrl.length - 1
-      if (dom) {
+      if (swipeRef.current) {
         // 从第一个 1 pre，实现方式为：1重定向到第二个 1，然后再向前pre到 7
-        dom.style.transform = `translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${imgUrl.length})))`
-        dom.style.transition = 'none'
+        swipeRef.current.style.cssText = `transition: none; transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${imgUrl.length})));`
         setTimeout(() => {
-          dom.style.transform = `translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})))`
-          dom.style.transition = 'all 500ms linear'
+          swipeRef.current.style.cssText = `transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})));transition: all 500ms linear;`
         }, 0)
       }
     } else {
-      if (dom) {
-        dom.style.transform = `translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})))`
-        dom.style.transition = 'all 500ms linear'
+      if (swipeRef.current) {
+        swipeRef.current.style.cssText = `transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})));transition: all 500ms linear;`
       }
     }
     setStep(value)
@@ -87,23 +91,21 @@ const Swipe = (props: SwipeProps) => {
 
   const handleNext = useCallback(() => {
     let value: number = step + 1
-    const dom = document.getElementById(`swipe-box_${swipeKey}`)
     if (value + showNum > imgArr.length) {
       // 当前step已展示到数组最后一个值，改变index
       value = imgUrl.length - showNum + 1
-      if (dom) {
+      if (swipeRef.current) {
         // 重定向到之前相同的图片去，然后再进行滚动
-        dom.style.transform = `translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${imgUrl.length - showNum})))`
-        dom.style.transition = 'none'
+        swipeRef.current.style.cssText = `transition: none; transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${
+          imgUrl.length - showNum
+        })));`
         setTimeout(() => {
-          dom.style.transform = `translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})))`
-          dom.style.transition = 'all 500ms linear'
-        }, 0)
+          swipeRef.current.style.cssText = `transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})));transition: all 500ms linear;`
+        }, 50)
       }
     } else {
-      if (dom) {
-        dom.style.transform = `translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})))`
-        dom.style.transition = 'all 500ms linear'
+      if (swipeRef.current) {
+        swipeRef.current.style.cssText = `transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})));transition: all 500ms linear;`
       }
     }
     setStep(value)
@@ -161,7 +163,7 @@ const Swipe = (props: SwipeProps) => {
       )}
       {/* 可视区展示图片 */}
       <div
-        id={`swipe-box_${swipeKey}`}
+        ref={swipeRef}
         className='swipe-box'
         style={{
           ...swipeBoxStyle,
