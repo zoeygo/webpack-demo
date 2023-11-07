@@ -86,11 +86,11 @@ const Swipe = (props: SwipeProps) => {
   const handleNext = useCallback(() => {
     let value: number = step + 1
     if (value > imgUrl.length) {
-      // 当前step已展示到数组最后一个值，改变index
+      // [1,2,3,4,5,6,2-1,2-2,2-3,2-4,2-5],从2-1移动至2-2
       value = 1
       if (swipeRef.current) {
-        // 重定向到之前相同的图片去，然后再进行滚动
-        swipeRef.current.style.cssText = `transition: none; transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${imgUrl.length})));`
+        // 重定向到第一张图片，然后再进行滚动
+        swipeRef.current.style.cssText = `transition: none; transform: translateX(0);`
         setTimeout(() => {
           swipeRef.current.style.cssText = `transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})));transition: all 500ms linear;`
         }, 50)
