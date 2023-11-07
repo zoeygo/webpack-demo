@@ -33,49 +33,43 @@ const Swipe = (props: SwipeProps) => {
     loop = true,
     swipeKey = new Date().valueOf(),
   } = props
-  const swipeRef = useRef(null)
+  const swipeRef = useRef<HTMLDivElement | null>(null)
   const [imgArr, setImgArr] = useState(imgUrl)
   const [step, setStep] = useState(0)
-  const [autoFlag, setAutoFlag] = useState(autoplay)
+  const [autoFlag, setAutoFlag] = useState(autoplay && imgUrl.length > showNum)
   // 定时器对象
-  let timer = {}
+  let timer: any
 
   useEffect(() => {
     let imgClone: imgProps[] = []
     // 无缝轮播且图片数量大于轮播可视区图片数量时，额外拷贝数组
     imgClone =
-      (loop || autoplay) && imgUrl.length > showNum ? imgClone.concat(imgUrl, imgUrl) : imgClone.concat([], imgUrl)
-    /**
-     * 数组 a 测试用
-     * 给拷贝的图片加上命名便于查看变更
-     */
-    const a: any[] = []
-    imgClone.forEach((item, index) => {
-      a.push({ ...item, name: index > 6 ? `2-${index - 6}` : index + 1 })
-    })
-    setImgArr(a)
+      (loop || autoplay) && imgUrl.length > showNum 
+      ? imgClone.concat(imgUrl, imgUrl.slice(0, showNum)) 
+      : imgClone.concat([], imgUrl)
+    setImgArr(imgClone)
   }, [])
 
   useEffect(() => {
     // 自动轮播设置定时器
     if (autoFlag) {
-      timer[swipeKey] = setInterval(handleNext, duration)
+      timer = setInterval(handleNext, duration)
     }
     return () => {
-      if (timer[swipeKey]) {
-        clearInterval(timer[swipeKey])
-        timer[swipeKey] = null
+      if (timer) {
+        clearInterval(timer)
+        timer = null
       }
     }
-  }, [swipeKey, step, autoFlag])
+  }, [step, autoFlag])
 
   const handlePre = useCallback(() => {
     let value: number = step - 1
     if (value === -1) {
-      // 此时数组结构如下：[1,2,3,4,5,6,7,1,2,3,4,5,6,7]
+      // 此时数组结构如下：[1,2,3,4,5,6,1,2,3,4,5]
       value = imgUrl.length - 1
       if (swipeRef.current) {
-        // 从第一个 1 pre，实现方式为：1重定向到第二个 1，然后再向前pre到 7
+        // 从第一个 1 pre，实现方式为：1重定向到第二个 1，然后再向前pre到 6
         swipeRef.current.style.cssText = `transition: none; transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${imgUrl.length})));`
         setTimeout(() => {
           swipeRef.current.style.cssText = `transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})));transition: all 500ms linear;`
@@ -91,14 +85,12 @@ const Swipe = (props: SwipeProps) => {
 
   const handleNext = useCallback(() => {
     let value: number = step + 1
-    if (value + showNum > imgArr.length) {
+    if (value > imgUrl.length) {
       // 当前step已展示到数组最后一个值，改变index
-      value = imgUrl.length - showNum + 1
+      value = 1
       if (swipeRef.current) {
         // 重定向到之前相同的图片去，然后再进行滚动
-        swipeRef.current.style.cssText = `transition: none; transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${
-          imgUrl.length - showNum
-        })));`
+        swipeRef.current.style.cssText = `transition: none; transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${imgUrl.length})));`
         setTimeout(() => {
           swipeRef.current.style.cssText = `transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})));transition: all 500ms linear;`
         }, 50)
@@ -113,14 +105,14 @@ const Swipe = (props: SwipeProps) => {
 
   // 鼠标移出，有自动轮播的继续轮播
   const handleScroll = useCallback(() => {
-    setAutoFlag(autoplay || false)
+    setAutoFlag(autoplay && imgUrl.length > showNum)
   }, [])
 
   // 鼠标移入停止自动轮播，清除定时器
   const clearScroll = useCallback(() => {
-    if (timer[swipeKey]) {
-      clearInterval(timer[swipeKey])
-      timer[swipeKey] = null
+    if (timer) {
+      clearInterval(timer)
+      timer = null
     }
     setAutoFlag(false)
   }, [])
@@ -164,6 +156,7 @@ const Swipe = (props: SwipeProps) => {
       {/* 可视区展示图片 */}
       <div
         ref={swipeRef}
+        id={swipeKey.toString()}
         className='swipe-box'
         style={{
           ...swipeBoxStyle,
