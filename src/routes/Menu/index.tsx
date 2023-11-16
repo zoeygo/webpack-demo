@@ -20,6 +20,9 @@ const Test1: React.FC<any> = () => {
             <div onClick={() => { navigate('/promise'); }}>
                 手写promise
             </div>
+            <div onClick={() => { navigate('/context'); }}>
+                react context应用：主题切换
+            </div>
         </div>
     );
 };

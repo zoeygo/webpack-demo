@@ -7,6 +7,7 @@ import QuickReply from '@/routes/QuickReply'
 import Swipe from '@/routes/Swipe/demo'
 import Curry from '@/routes/Curry'
 import Promise from '@/routes/Promise'
+import Context from '@/routes/Context'
 
 export const routerItems = [
   {
@@ -44,5 +45,10 @@ export const routerItems = [
   {
     path: '/promise',
     element: <Promise />,
+  },
+  // react context应用
+  {
+    path: '/context',
+    element: <Context />,
   },
 ]

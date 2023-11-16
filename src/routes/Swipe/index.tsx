@@ -93,7 +93,7 @@ const Swipe = (props: SwipeProps) => {
         swipeRef.current.style.cssText = `transition: none; transform: translateX(0);`
         setTimeout(() => {
           swipeRef.current.style.cssText = `transform: translateX(calc((${itemWidth} + ${itemRightMargin}) * (-${value})));transition: all 500ms linear;`
-        }, 50)
+        }, 30)
       }
     } else {
       if (swipeRef.current) {
