@@ -8,6 +8,10 @@ import Swipe from '@/routes/Swipe/demo'
 import Curry from '@/routes/Curry'
 import Promise from '@/routes/Promise'
 import Context from '@/routes/Context'
+import Hoc from '@/routes/Hoc/Test'
+import ReactLazy from '@/routes/ReactLazy'
+import BigData from '@/routes/BigData'
+import VirtualList from '@/routes/VirtualList'
 
 export const routerItems = [
   {
@@ -50,5 +54,25 @@ export const routerItems = [
   {
     path: '/context',
     element: <Context />,
+  },
+  // hoc 高阶组件
+  {
+    path: '/hoc',
+    element: <Hoc />,
+  },
+  // React.lazy + Susponse模拟异步组件功能
+  {
+    path: '/react-lazy',
+    element: <ReactLazy />,
+  },
+  // 大数据量下时间分片
+  {
+    path: '/big-data',
+    element: <BigData />,
+  },
+  // 虚拟列表
+  {
+    path: '/virtual-list',
+    element: <VirtualList />,
   },
 ]
