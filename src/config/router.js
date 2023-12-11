@@ -1,7 +1,5 @@
 import React from 'react'
 import Menu from '@/routes/Menu'
-import Test1 from '@/routes/Test1'
-import Test2 from '@/routes/Test2'
 import Cabbage from '@/routes/Cabbage'
 import QuickReply from '@/routes/QuickReply'
 import Swipe from '@/routes/Swipe/demo'
@@ -18,14 +16,6 @@ export const routerItems = [
     path: '/',
     element: <Menu />,
     redirect: '/Menu',
-  },
-  {
-    path: '/test1',
-    element: <Test1 />,
-  },
-  {
-    path: '/test2',
-    element: <Test2 />,
   },
   {
     path: '/cabbage',
