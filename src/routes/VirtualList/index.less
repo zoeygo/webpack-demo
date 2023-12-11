@@ -1,17 +1,22 @@
 .list_box {
-    width: 400px;
-    :global {
-        .scroll_box {
-
-        }
-        .scroll_hold {
-
-        }
-        .context {
-
-        }
-        .list {
-
-        }
+  height: 500px;
+  width: 400px;
+  :global {
+    .scroll_hold {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
     }
+    .scroll_box {
+      overflow: scroll;
+      position: relative;
+    }
+    .list {
+      width: calc(100% - 20px);
+      margin: 0 10px 10px;
+      border: 1px solid #000;
+      text-align: center;
+    }
+  }
 }

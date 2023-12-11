@@ -10,6 +10,7 @@ module.exports = merge(common, {
     path: __dirname + '/../dist',
     // [contenthash:8] - 本应用打包输出文件级别的更新，导致输出文件名变化
     filename: '[name]-[contenthash:8].js',
+    // chunkFilename: `[name]-[contenthash:8].js`, // 未配置chunkFilename则按照filename输出文件名？
     // 编译前清除目录
     clean: true,
   },

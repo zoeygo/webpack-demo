@@ -22,6 +22,8 @@ module.exports = {
                 exclude: /node_modules/,
                 // use: 'babel-loader',
                 use: [
+                    // babel主要用来编译成js，编译工具，高版本语法编译成低版本语法。或根据自定义规则转换
+                    // webpack主要将js和引入的node_modules融合后用babel编译，打包工具
                     {
                         loader: 'babel-loader',
                         options: {
