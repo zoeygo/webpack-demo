@@ -1,6 +1,5 @@
 import React from 'react'
 import Menu from '@/routes/Menu'
-import Cabbage from '@/routes/Cabbage'
 import QuickReply from '@/routes/QuickReply'
 import Swipe from '@/routes/Swipe/demo'
 import Curry from '@/routes/Curry'
@@ -16,10 +15,6 @@ export const routerItems = [
     path: '/',
     element: <Menu />,
     redirect: '/Menu',
-  },
-  {
-    path: '/cabbage',
-    element: <Cabbage />,
   },
   {
     path: '/quickReply',
