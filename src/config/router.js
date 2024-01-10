@@ -9,6 +9,7 @@ import Hoc from '@/routes/Hoc/Test'
 import ReactLazy from '@/routes/ReactLazy'
 import BigData from '@/routes/BigData'
 import VirtualList from '@/routes/VirtualList'
+import MobxDemo from '@/routes/Mobx'
 
 export const routerItems = [
   {
@@ -59,5 +60,10 @@ export const routerItems = [
   {
     path: '/virtual-list',
     element: <VirtualList />,
+  },
+  // mobx
+  {
+    path: '/mobx-demo',
+    element: <MobxDemo />,
   },
 ]

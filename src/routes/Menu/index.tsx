@@ -71,6 +71,13 @@ const Test1: React.FC<any> = () => {
       >
         虚拟列表
       </div>
+      <div
+        onClick={() => {
+          navigate('/mobx-demo')
+        }}
+      >
+        mobx demo
+      </div>
     </div>
   )
 }
