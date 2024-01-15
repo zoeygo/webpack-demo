@@ -11,6 +11,7 @@ import BigData from '@/routes/BigData'
 import VirtualList from '@/routes/VirtualList'
 import MobxDemo from '@/routes/Mobx'
 import MiniRouter from '@/routes/MiniRouter/demo'
+import CustomizeHooks from '@/routes/CustomizeHooks'
 
 export const routerItems = [
   {
@@ -71,5 +72,10 @@ export const routerItems = [
   {
     path: '/mini-router',
     element: <MiniRouter />,
+  },
+  // 自定义hooks
+  {
+    path: '/customize-hooks',
+    element: <CustomizeHooks />,
   },
 ]

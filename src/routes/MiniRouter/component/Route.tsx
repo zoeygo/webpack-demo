@@ -13,7 +13,7 @@ function Route(props: any) {
   const match = props.computedMatch
     ? props.computedMatch
     : props.path
-    ? matchPath(location.pathname, props)
+    ? matchPath(props, location.pathname)
     : context.match
   // 这个props用于传递给路由组件
   const newRouterProps = { ...context, location, match }

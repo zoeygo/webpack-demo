@@ -4,7 +4,7 @@
 import React, { useState, useEffect, createContext, useMemo } from 'react'
 import { createBrowserHistory as createHistory } from 'history'
 
-export const RouterContext = createContext({})
+export const RouterContext = createContext(null)
 export let rootHistory = null
 
 export default function Router(props: any) {
@@ -17,7 +17,7 @@ export default function Router(props: any) {
   const [location, setLocation] = useState(history.location)
   useEffect(() => {
     // 监听location变化，通知更新
-    const unlisten = history.listen(location => {
+    const unlisten = history.listen(({ location }) => {
       setLocation(location)
     })
     return function () {

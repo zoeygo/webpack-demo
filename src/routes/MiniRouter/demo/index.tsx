@@ -25,7 +25,7 @@ const menusList = [
 function Nav() {
   const history = useHistory()
   /* 路由跳转 */
-  const RouterGo = url => history.push(url)
+  const routerGo = url => history.push(url)
   const path = history.location.pathname
   return (
     <div>
@@ -33,7 +33,7 @@ function Nav() {
         <span
           className={`nav ${item.path === path ? 'active' : ''}`}
           key={item.path}
-          onClick={() => RouterGo(item.path)}
+          onClick={() => routerGo(item.path)}
         >
           {item.name}
         </span>
@@ -47,11 +47,10 @@ function Top() {
   useListen(location => {
     console.log('当前路由是：', location.pathname)
   })
-  console.log(111)
   return <div>--------top------</div>
 }
 function Index() {
-  console.log('根组件渲染')
+  // 根组件渲染
   return (
     <Router>
       <Top />

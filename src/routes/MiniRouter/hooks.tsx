@@ -18,7 +18,7 @@ export function useListen(cb) {
   useEffect(() => {
     if (!rootHistory) return () => {}
     // 绑定路由事件监听器
-    const unlisten = rootHistory.listen(location => {
+    const unlisten = rootHistory.listen(({ location }) => {
       cb && cb(location)
     })
     return function () {

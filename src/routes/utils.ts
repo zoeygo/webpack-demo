@@ -1,4 +1,3 @@
-import { useCallback } from 'react'
 import { isObject, isString } from 'lodash'
 const API_HOST = '/test'
 // a标签文件下载
@@ -12,7 +11,7 @@ function isJSON(str) {
   return isObject(result) && !isString(result)
 }
 
-const handleDrawingDownload = useCallback(() => {
+const handleDownload = () => {
   let fileName = ''
   const reqConfig = new Request(`${API_HOST}`, {
     method: 'GET',
@@ -57,6 +56,42 @@ const handleDrawingDownload = useCallback(() => {
         window.URL.revokeObjectURL(blobURL)
       }
     })
-}, [])
+}
 
-export { handleDrawingDownload }
+// 生成随机数
+const getRandom = (count: number) => {
+  const result: number[] = []
+  while (result.length < count) {
+    const number: number = parseInt(Math.random() * 10 as any as string, 10)
+    if (result.indexOf(number) === -1) result.push(number)
+  }
+  return result
+}
+
+// 比较两个值是否相等
+const shallowEqual = (objA, objB) => {
+  // 相同且非object类型 或者都为null 则为true
+  if (Object.is(objA, objB)) {
+    return true
+  }
+  // 排除objA, objB都为非null object类型的情况
+  if (typeof objA !== 'object' || objA === null || typeof objB !== 'object' || objB === null) {
+    return false
+  }
+  // 比较object对象
+  const keysA = Object.keys(objA)
+  const keysB = Object.keys(objB)
+  if (keysA.length !== keysB.length) {
+    return false
+  }
+  for (let i = 0; i < keysA.length; i++) {
+    // Object.hasOwn(objB, keysA[i]) 等价于 objB.hasOwnProperty.call(objB, keysA[i]) 
+    // objB.hasOwnProperty(keysA[i]) 推荐hasOwn
+    if (!objB.hasOwnProperty.call(objB, keysA[i]) || !Object.is(objA[keysA[i]], objB[keysA[i]])) {
+      return false
+    }
+  }
+  return true
+}
+
+export { handleDownload, getRandom, shallowEqual }

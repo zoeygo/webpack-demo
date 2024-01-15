@@ -20,7 +20,7 @@ export default function Switch(props: any) {
       children = child
       const props = child.props as any
       // 计算是否匹配
-      match = path ? matchPath(location.pathname, { ...props }) : context.match
+      match = path ? matchPath({ ...props }, location.pathname) : context.match
     }
   })
   // 克隆一份children，混入computedMatch并渲染

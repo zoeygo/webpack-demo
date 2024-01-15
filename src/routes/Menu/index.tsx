@@ -85,6 +85,13 @@ const Test1: React.FC<any> = () => {
       >
         路由模拟
       </div>
+      <div
+        onClick={() => {
+          navigate('/customize-hooks')
+        }}
+      >
+        自定义hooks
+      </div>
     </div>
   )
 }
