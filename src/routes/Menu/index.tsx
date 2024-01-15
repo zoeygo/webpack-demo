@@ -78,6 +78,13 @@ const Test1: React.FC<any> = () => {
       >
         mobx demo
       </div>
+      <div
+        onClick={() => {
+          navigate('/mini-router')
+        }}
+      >
+        路由模拟
+      </div>
     </div>
   )
 }

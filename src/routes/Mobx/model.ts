@@ -2,6 +2,7 @@ import { makeObservable, observable, action } from 'mobx'
 
 class Communi {
   constructor() {
+    // 新版本必须调用 makeObservable
     makeObservable(this)
   }
   @observable mesA = ''

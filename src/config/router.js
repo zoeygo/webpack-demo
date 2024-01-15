@@ -10,6 +10,7 @@ import ReactLazy from '@/routes/ReactLazy'
 import BigData from '@/routes/BigData'
 import VirtualList from '@/routes/VirtualList'
 import MobxDemo from '@/routes/Mobx'
+import MiniRouter from '@/routes/MiniRouter/demo'
 
 export const routerItems = [
   {
@@ -65,5 +66,10 @@ export const routerItems = [
   {
     path: '/mobx-demo',
     element: <MobxDemo />,
+  },
+  // 路由模拟
+  {
+    path: '/mini-router',
+    element: <MiniRouter />,
   },
 ]
