@@ -94,4 +94,6 @@ const shallowEqual = (objA, objB) => {
   return true
 }
 
+// 日期向前推一个月
+// moment(new Date()).subtract(1, 'months').format('YYYY-MM-DD')
 export { handleDownload, getRandom, shallowEqual }
