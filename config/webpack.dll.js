@@ -1,7 +1,6 @@
 const { DllPlugin } = require("webpack"); // 动态链接库插件
 const path = require('path')
-
-const distPath = path.resolve(__dirname, 'dist');
+const distPath = path.resolve(__dirname, '../dist');
 
 module.exports = {
   mode: 'development',

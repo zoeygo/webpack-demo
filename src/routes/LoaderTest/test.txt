@@ -1,0 +1,5 @@
+// test.txt
+你好，我是蒋梨花
+// app.js (入口文件引用)
+const text = require(./text.txt)
+console.log(test)

@@ -6,7 +6,7 @@ const chalk = require('chalk')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin') // 编译进度条
 const { DllReferencePlugin } = require('webpack')
 
-const distPath = path.resolve(__dirname, 'dist');
+// const distPath = path.resolve(__dirname, '../dist')
 
 module.exports = {
   resolve: {
@@ -104,6 +104,18 @@ module.exports = {
           filename: 'fonts/[hash][ext][query]',
         },
       },
+      // 自定义loader测试
+      {
+        test: /\.txt$/,
+        use: [
+          {
+            loader: 'demo-loader',
+            options: {
+              name: '自定义loader测试', // 将要变更的通过配置项传入
+            },
+          },
+        ],
+      },
     ],
     // 代码中如果有xx.min.js之类的文件，基本已经采用模块化处理过的，无需在对类似文件进行递归解析处理，会引入进项目
     noParse: [/xx\.min\.js$/],
@@ -122,9 +134,10 @@ module.exports = {
     new ProgressBarPlugin({
       format: `  :msg [:bar] ${chalk.green.bold(':percent')} (:elapsed s)`,
     }),
-    new DllReferencePlugin({
-      //描述react动态链接库的文件内容
-      manifest: require(path.join(distPath, 'react.manifest.json')),
-    }),
+    // new DllReferencePlugin({
+    //   //描述react动态链接库的文件内容
+    //   // manifest: require(path.join(distPath, 'react.manifest.json')),
+    //   manifest: path.resolve(__dirname, '../dist/react.manifest.json'),
+    // }),
   ],
 }
