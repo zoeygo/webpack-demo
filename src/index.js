@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom'
 
 import { routerItems } from './config/router'
+import { RouteGuard } from './routes/RouteGuard'
 
 import '../node_modules/antd/dist/antd.css'
 
@@ -20,7 +21,15 @@ const routerViews = routerItems => {
   if (routerItems && routerItems.length) {
     return routerItems.map(({ path, element, children, redirect }) => {
       return children && children.length ? (
-        <Route path={path} key={path} element={<Suspense fallback={<Loading />}>{element}</Suspense>}>
+        <Route
+          path={path}
+          key={path}
+          element={
+            <Suspense fallback={<Loading />}>
+              <RouteGuard>{element}</RouteGuard>
+            </Suspense>
+          }
+        >
           {/* 递归遍历子路由 */}
           {routerViews(children)}
           {redirect ? (
@@ -30,7 +39,15 @@ const routerViews = routerItems => {
           )}
         </Route>
       ) : (
-        <Route key={path} path={path} element={<Suspense fallback={<Loading />}>{element}</Suspense>}></Route>
+        <Route
+          key={path}
+          path={path}
+          element={
+            <Suspense fallback={<Loading />}>
+              <RouteGuard>{element}</RouteGuard>
+            </Suspense>
+          }
+        ></Route>
       )
     })
   }
