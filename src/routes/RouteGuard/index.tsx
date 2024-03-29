@@ -1,3 +1,7 @@
+/**
+ * 路由守卫
+ * 用于判断登陆权限/角色权限等
+ */
 import { ReactNode, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { routerItems } from '@/config/router'
@@ -26,6 +30,7 @@ export const RouterBeforeEach = ({ children }: any) => {
 
   useEffect(() => {
     let router = getCurrentRouterMap(routerItems, location.pathname)
+    // 模拟是否登陆的情况
     const isLogin = window.sessionStorage.getItem('isLogn')
     if (!isLogin && router.auth) {
       navigator('/login')
