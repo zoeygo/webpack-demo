@@ -13,6 +13,7 @@ import VirtualList from '@/routes/VirtualList'
 import MobxDemo from '@/routes/Mobx'
 import MiniRouter from '@/routes/MiniRouter/demo'
 import CustomizeHooks from '@/routes/CustomizeHooks'
+import WaterfallsFlow from '@/routes/WaterfallsFlow'
 interface Route {
   path: string
   name: string
@@ -28,7 +29,7 @@ export const routerItems: Route[] = [
     name: 'menu',
     element: <Menu />,
     redirect: '/Menu',
-    auth: true, // 需要权限校验
+    // auth: true, // 需要权限校验
   },
   {
     path: '/quickReply',
@@ -100,5 +101,11 @@ export const routerItems: Route[] = [
     path: '/customize-hooks',
     name: 'customize-hooks',
     element: <CustomizeHooks />,
+  },
+  // 图片瀑布流
+  {
+    path: '/waterfalls-flow',
+    name: 'waterfalls-flow',
+    element: <WaterfallsFlow />,
   },
 ]

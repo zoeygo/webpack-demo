@@ -92,6 +92,13 @@ const Test1: React.FC<any> = () => {
       >
         自定义hooks
       </div>
+      <div
+        onClick={() => {
+          navigate('/waterfalls-flow')
+        }}
+      >
+        图片瀑布流
+      </div>
     </div>
   )
 }

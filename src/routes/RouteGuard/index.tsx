@@ -14,7 +14,7 @@ interface Route {
   auth?: boolean
 }
 
-export const RouterBeforeEach = ({ children }: any) => {
+export const RouteGuard = ({ children }: any) => {
   const location = useLocation()
   const navigator = useNavigate()
   const getCurrentRouterMap = (routers: Route[], path: string): Route => {
