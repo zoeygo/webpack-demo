@@ -39,22 +39,22 @@
 // }
 
 // flex方案
-// .img-wrapper {
-//   display: flex;
-//   flex-wrap: wrap;
-//   flex-direction: column;
-//   height: 1300px;
-// }
-// .img-wrapper > li {
-//   position: relative;
-//   width: calc(100% / 4);
-//   padding: 5px;
-//   // 标准盒模型宽度只有content,ie盒模型宽度由content+padding+border组成
-//   // box-sizing默认值为content-box，即元素宽高只应用于content
-//   // 值为border-box，即元素宽高应用于content+padding+border
-//   box-sizing: border-box;
-// }
-// // 改变一定程度的序列优先级，可使用order
-// .img-wrapper > li:nth-child(4n + 1) {
-//   order: 1;
-// }
+.img-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 1300px;
+}
+.img-wrapper > li {
+  position: relative;
+  width: calc(100% / 4);
+  padding: 5px;
+  // 标准盒模型宽度只有content,ie盒模型宽度由content+padding+border组成
+  // box-sizing默认值为content-box，即元素宽高只应用于content
+  // 值为border-box，即元素宽高应用于content+padding+border
+  box-sizing: border-box;
+}
+// 改变一定程度的序列优先级，可使用order
+.img-wrapper > li:nth-child(4n + 1) {
+  order: 1;
+}

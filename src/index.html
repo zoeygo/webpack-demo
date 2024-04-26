@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotation Animation</title>
+<style>
+    .circle {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        border-radius: 50%;
+        animation: rotate 2s linear infinite; /* 应用动画 */
+        border: 10px solid transparent;
+        border-bottom: 10px solid yellow;
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg); /* 初始位置 */
+        }
+        to {
+            transform: rotate(360deg); /* 最终位置 */
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="circle"></div>
+
+</body>
+</html>

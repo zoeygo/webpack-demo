@@ -53,20 +53,20 @@ const list = [
 function WaterfallsFlow() {
   // 瀑布流js+absolute方案，但没生效
   // 可能执行时机晚于window.onload
-  useEffect(() => {
-    window.addEventListener('load', handleLoad)
-    return () => {
-      window.removeEventListener('load', handleLoad)
-    }
-  }, [])
+  // useEffect(() => {
+  //   window.addEventListener('load', handleLoad)
+  //   return () => {
+  //     window.removeEventListener('load', handleLoad)
+  //   }
+  // }, [])
 
-  const handleLoad = () => {
-    new Waterfall({
-      $el: document.querySelector('#img-wrapper'),
-      count: 4,
-      gap: 10,
-    })
-  }
+  // const handleLoad = () => {
+  //   new Waterfall({
+  //     $el: document.querySelector('#img-wrapper'),
+  //     count: 4,
+  //     gap: 10,
+  //   })
+  // }
 
   return (
     <>
