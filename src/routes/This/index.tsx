@@ -1,5 +1,8 @@
 /**
  * 改变this指向
+ * a.call(thisArg, ...args)
+ * a.apply(thisArg, [...args])
+ * 执行a，a的this更改为thisArg
  */
 
 // call(this, ...args)
