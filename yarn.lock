@@ -7089,6 +7089,11 @@ text-table@^0.2.0:
   resolved "http://nexus.going-link.com/repository/zhenyun-npm-group/text-table/-/text-table-0.2.0.tgz"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
 
+three@^0.165.0:
+  version "0.165.0"
+  resolved "http://nexus.going-link.com/repository/zhenyun-npm-group/three/-/three-0.165.0.tgz"
+  integrity sha512-cc96IlVYGydeceu0e5xq70H8/yoVT/tXBxV/W8A/U6uOq7DXc4/s1Mkmnu6SqoYGhSRWWYFOhVwvq6V0VtbplA==
+
 through@^2.3.8:
   version "2.3.8"
   resolved "https://registry.npmjs.org/through/-/through-2.3.8.tgz"

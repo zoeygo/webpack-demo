@@ -15,6 +15,7 @@ import MiniRouter from '@/routes/MiniRouter/demo'
 import CustomizeHooks from '@/routes/CustomizeHooks'
 import WaterfallsFlow from '@/routes/WaterfallsFlow'
 import Concurrency from '@/routes/Concurrency'
+import ThreeJs from '@/routes/ThreeJs'
 interface Route {
   path: string
   name: string
@@ -130,5 +131,12 @@ export const routerItems: Route[] = [
     name: 'concurrency',
     meaning: '并发请求数量控制',
     element: <Concurrency />,
+  },
+  // threeJs
+  {
+    path: '/threeJs',
+    name: 'threeJs',
+    meaning: 'threeJs',
+    element: <ThreeJs />,
   },
 ]
