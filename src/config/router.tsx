@@ -15,7 +15,7 @@ import MiniRouter from '@/routes/MiniRouter/demo'
 import CustomizeHooks from '@/routes/CustomizeHooks'
 import WaterfallsFlow from '@/routes/WaterfallsFlow'
 import Concurrency from '@/routes/Concurrency'
-import ThreeJs from '@/routes/ThreeJs'
+import ThreeJs from '@/routes/ThreeJs/index4'
 interface Route {
   path: string
   name: string
