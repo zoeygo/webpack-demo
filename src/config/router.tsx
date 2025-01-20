@@ -16,6 +16,7 @@ import CustomizeHooks from '@/routes/CustomizeHooks'
 import WaterfallsFlow from '@/routes/WaterfallsFlow'
 import Concurrency from '@/routes/Concurrency'
 import ThreeJs from '@/routes/ThreeJs/demo'
+import Countdown from '@/routes/Countdown'
 interface Route {
   path: string
   name: string
@@ -138,5 +139,12 @@ export const routerItems: Route[] = [
     name: 'threeJs',
     meaning: 'threeJs',
     element: <ThreeJs />,
+  },
+  // 60s倒计时
+  {
+    path: '/countdown',
+    name: 'countdown',
+    meaning: '60s倒计时',
+    element: <Countdown />,
   },
 ]

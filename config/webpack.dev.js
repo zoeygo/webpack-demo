@@ -1,5 +1,6 @@
 const { merge } = require('webpack-merge')
 const common = require('./webpack.common')
+// nodejs核心模块，用于操作文件路径
 const path = require('path')
 module.exports = merge(common, {
   // 指定用哪种模式编译，默认production，会对代码进行压缩混淆。
@@ -15,6 +16,7 @@ module.exports = merge(common, {
   // 编译后的输出文件目录dist/main.js
   output: {
     filename: 'main.js',
+    // 定义webpack输出它所创建的bundle路径
     path: path.resolve(__dirname, 'dist'),
   },
   devServer: {

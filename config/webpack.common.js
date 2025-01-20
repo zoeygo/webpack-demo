@@ -8,6 +8,9 @@ const { DllReferencePlugin } = require('webpack')
 
 // const distPath = path.resolve(__dirname, '../dist')
 
+// loader 用于转换某些类型的模块，
+// 而plugin插件则可以用于执行范围更广的任务。包括：打包优化，资源管理，注入环境变量。
+
 module.exports = {
   resolve: {
     // 配置路径别名
@@ -17,7 +20,12 @@ module.exports = {
     },
     mainFiles: ['index', 'main'],
   },
+  // 让webpack能够处理除js和json以外的文件，并将它们转换为有效模块
   module: {
+    /**
+     * test：识别出哪些文件被转换
+     * use：进行转换时，应使用哪个loader 
+     */
     rules: [
       {
         // test: /\.jsx?$/,
