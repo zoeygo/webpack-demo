@@ -36,7 +36,7 @@ const getData = () => {
 }
 
 // 测试异步组件
-function Test({ rdata, age }: any) {
+function Child({ rdata, age }: any) {
   const { name, say } = rdata
   return (
     <div>
@@ -48,9 +48,9 @@ function Test({ rdata, age }: any) {
 }
 
 // 父组件
-export default class Index extends React.Component {
+export default class ReactLazy extends React.Component {
   /* 需要每一次在组件内部声明，保证每次父组件挂载，都会重新请求数据 ，防止内存泄漏。 */
-  LazyTest = AsyncComponent(Test, getData)
+  LazyTest = AsyncComponent(Child, getData)
   render() {
     const { LazyTest } = this
     return (

@@ -5,7 +5,7 @@ import { routerItems } from '@/config/router'
 
 import styles from './index.less'
 
-const Test1: React.FC<any> = () => {
+const Menu: React.FC<any> = () => {
   const navigate = useNavigate()
   return (
     <div className={styles['menu-content']}>
@@ -23,4 +23,4 @@ const Test1: React.FC<any> = () => {
   )
 }
 
-export default memo(Test1)
+export default memo(Menu)

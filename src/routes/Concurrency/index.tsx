@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { Button } from 'antd'
 import { sendRequest, concurrencyRequest } from './utils'
 
-const Test1: React.FC<any> = () => {
+const Concurrency: React.FC<any> = () => {
   const handleConcurrency = () => {
     const urls = []
     for (let i = 1; i <= 20; i++) {
@@ -30,4 +30,4 @@ const Test1: React.FC<any> = () => {
   )
 }
 
-export default memo(Test1)
+export default memo(Concurrency)
