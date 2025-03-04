@@ -17,6 +17,8 @@ import WaterfallsFlow from '@/routes/WaterfallsFlow'
 import Concurrency from '@/routes/Concurrency'
 import ThreeJs from '@/routes/ThreeJs/demo'
 import Countdown from '@/routes/Countdown'
+import HookAnalytic from '@/routes/HookAnalytic'
+import HocAnalytic from '@/routes/HocAnalytic'
 interface Route {
   path: string
   name: string
@@ -146,5 +148,19 @@ export const routerItems: Route[] = [
     name: 'countdown',
     meaning: '60s倒计时',
     element: <Countdown />,
+  },
+  // 自定义hook实现埋点
+  {
+    path: '/hookAnalytic',
+    name: 'hookAnalytic',
+    meaning: '自定义hook实现埋点',
+    element: <HookAnalytic />,
+  },
+  // 高阶组件实现埋点
+  {
+    path: '/hocAnalytic',
+    name: 'hocAnalytic',
+    meaning: '高阶组件实现埋点',
+    element: <HocAnalytic />,
   },
 ]
