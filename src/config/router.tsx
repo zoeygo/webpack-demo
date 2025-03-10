@@ -19,6 +19,8 @@ import ThreeJs from '@/routes/ThreeJs/demo'
 import Countdown from '@/routes/Countdown'
 import HookAnalytic from '@/routes/HookAnalytic'
 import HocAnalytic from '@/routes/HocAnalytic'
+import TextToSpeech from '@/routes/TextToSpeech'
+
 interface Route {
   path: string
   name: string
@@ -162,5 +164,11 @@ export const routerItems: Route[] = [
     name: 'hocAnalytic',
     meaning: '高阶组件实现埋点',
     element: <HocAnalytic />,
+  },
+  {
+    path: '/text-to-speech',
+    name: 'text-to-speech',
+    meaning: '文本转语音播放',
+    element: <TextToSpeech />,
   },
 ]
