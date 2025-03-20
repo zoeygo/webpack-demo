@@ -20,6 +20,7 @@ import Countdown from '@/routes/Countdown'
 import HookAnalytic from '@/routes/HookAnalytic'
 import HocAnalytic from '@/routes/HocAnalytic'
 import TextToSpeech from '@/routes/TextToSpeech'
+import WebSocketDemo from '@/routes/WebSocketDemo'
 
 interface Route {
   path: string
@@ -171,5 +172,11 @@ export const routerItems: Route[] = [
     name: 'text-to-speech',
     meaning: '文本转语音播放',
     element: <TextToSpeech />,
+  },
+  {
+    path: '/websocket-demo',
+    name: 'websocket-demo',
+    meaning: 'WebSocket心跳检测',
+    element: <WebSocketDemo />,
   },
 ]
