@@ -21,6 +21,7 @@ import HookAnalytic from '@/routes/HookAnalytic'
 import HocAnalytic from '@/routes/HocAnalytic'
 import TextToSpeech from '@/routes/TextToSpeech'
 import WebSocketDemo from '@/routes/WebSocketDemo'
+import VideoCarousel from '@/routes/VideoCarousel'
 
 interface Route {
   path: string
@@ -178,5 +179,11 @@ export const routerItems: Route[] = [
     name: 'websocket-demo',
     meaning: 'WebSocket心跳检测',
     element: <WebSocketDemo />,
+  },
+  {
+    path: '/video-carousel',
+    name: 'video-carousel',
+    meaning: '视频轮播',
+    element: <VideoCarousel />,
   },
 ]
