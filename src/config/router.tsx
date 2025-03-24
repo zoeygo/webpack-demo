@@ -21,7 +21,6 @@ import HookAnalytic from '@/routes/HookAnalytic'
 import HocAnalytic from '@/routes/HocAnalytic'
 import TextToSpeech from '@/routes/TextToSpeech'
 import WebSocketDemo from '@/routes/WebSocketDemo'
-import VideoCarousel from '@/routes/VideoCarousel'
 import PasteDemo from '@/routes/PasteDemo'
 import BlockSelect from '@/routes/BlockSelect'
 
@@ -182,13 +181,6 @@ export const routerItems: Route[] = [
     name: 'websocket-demo',
     meaning: 'WebSocket心跳检测',
     element: <WebSocketDemo />,
-  },
-  // 视频轮播-待修改
-  {
-    path: '/video-carousel',
-    name: 'video-carousel',
-    meaning: '视频轮播',
-    element: <VideoCarousel />,
   },
   // 粘贴内容获取
   {

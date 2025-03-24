@@ -11,9 +11,9 @@ const WebSocketDemo: React.FC = () => {
   const heartbeatTimerRef = useRef<NodeJS.Timeout | null>(null);
   const reconnectTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const HEARTBEAT_INTERVAL = 3000; // 心跳间隔 3 秒
-  const RECONNECT_INTERVAL = 5000; // 重连间隔 5 秒
-  const WS_URL = 'ws://echo.websocket.org'; // WebSocket 服务器地址
+  const HEARTBEAT_INTERVAL = 10000; // 心跳间隔 10 秒
+  const RECONNECT_INTERVAL = 15000; // 重连间隔 15 秒
+  const WS_URL = 'http://localhost:3200/'; // WebSocket 服务器地址
 
   const connect = () => {
     try {
