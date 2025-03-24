@@ -22,6 +22,8 @@ import HocAnalytic from '@/routes/HocAnalytic'
 import TextToSpeech from '@/routes/TextToSpeech'
 import WebSocketDemo from '@/routes/WebSocketDemo'
 import VideoCarousel from '@/routes/VideoCarousel'
+import PasteDemo from '@/routes/PasteDemo'
+import BlockSelect from '@/routes/BlockSelect'
 
 interface Route {
   path: string
@@ -174,16 +176,32 @@ export const routerItems: Route[] = [
     meaning: '文本转语音播放',
     element: <TextToSpeech />,
   },
+  // WebSocket心跳检测-待查看
   {
     path: '/websocket-demo',
     name: 'websocket-demo',
     meaning: 'WebSocket心跳检测',
     element: <WebSocketDemo />,
   },
+  // 视频轮播-待修改
   {
     path: '/video-carousel',
     name: 'video-carousel',
     meaning: '视频轮播',
     element: <VideoCarousel />,
+  },
+  // 粘贴内容获取
+  {
+    path: '/paste-demo',
+    name: 'paste-demo',
+    meaning: '粘贴内容获取',
+    element: <PasteDemo />,
+  },
+  // 自定义右键菜单
+  {
+    path: '/block-select',
+    name: 'block-select',
+    meaning: '自定义右键菜单',
+    element: <BlockSelect />,
   },
 ]

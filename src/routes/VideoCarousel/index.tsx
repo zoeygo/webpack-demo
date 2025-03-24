@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Carousel, Card, Button, Space } from 'antd';
 import { PlayCircleOutlined, PauseCircleOutlined } from '@ant-design/icons';
-import styles from './index.module.css';
+import styles from './index.less';
 
 interface VideoItem {
   id: number;
