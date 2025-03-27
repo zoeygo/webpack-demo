@@ -1,0 +1,36 @@
+.container {
+  padding: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.canvasContainer {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 20px 0;
+  
+  // 自定义滚动条样式
+  &::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+
+    &:hover {
+      background: #999;
+    }
+  }
+}
+
+.canvas {
+  display: block;
+  background: #ffffff;
+} 

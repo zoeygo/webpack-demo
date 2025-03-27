@@ -23,6 +23,7 @@ import TextToSpeech from '@/routes/TextToSpeech'
 import WebSocketDemo from '@/routes/WebSocketDemo'
 import PasteDemo from '@/routes/PasteDemo'
 import BlockSelect from '@/routes/BlockSelect'
+import FlowChart from '@/routes/FlowChart'
 
 interface Route {
   path: string
@@ -195,5 +196,12 @@ export const routerItems: Route[] = [
     name: 'block-select',
     meaning: '自定义右键菜单',
     element: <BlockSelect />,
+  },
+  // 流程图
+  {
+    path: '/flow-chart',
+    name: 'flow-chart',
+    meaning: '流程图',
+    element: <FlowChart />,
   },
 ]
