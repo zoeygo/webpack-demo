@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'antd'
 import { withAnalytics } from './withAnalytics'
 
-function HookAnalytic({ trackEvent }) {
+function HocAnalytic({ trackEvent }) {
   // 按钮点击事件
   const handleClick = () => {
     trackEvent('buttonClick', {
@@ -17,4 +17,4 @@ function HookAnalytic({ trackEvent }) {
   )
 }
 
-export default withAnalytics(HookAnalytic)
+export default withAnalytics(HocAnalytic)

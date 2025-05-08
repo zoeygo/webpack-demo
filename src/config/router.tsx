@@ -24,6 +24,7 @@ import WebSocketDemo from '@/routes/WebSocketDemo'
 import PasteDemo from '@/routes/PasteDemo'
 import BlockSelect from '@/routes/BlockSelect'
 import FlowChart from '@/routes/FlowChart'
+import AntvG6 from '@/routes/AntvG6'
 
 interface Route {
   path: string
@@ -203,5 +204,12 @@ export const routerItems: Route[] = [
     name: 'flow-chart',
     meaning: '流程图',
     element: <FlowChart />,
+  },
+  // antv/g6 demo
+  {
+    path: '/antv-g6-demo',
+    name: 'antv-g6-demo',
+    meaning: 'antv/g6 demo',
+    element: <AntvG6 />,
   },
 ]
