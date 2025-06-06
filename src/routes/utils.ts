@@ -62,7 +62,7 @@ const handleDownload = () => {
 const getRandom = (count: number) => {
   const result: number[] = []
   while (result.length < count) {
-    const number: number = parseInt(Math.random() * 10 as any as string, 10)
+    const number: number = parseInt((Math.random() * 10) as any as string, 10)
     if (result.indexOf(number) === -1) result.push(number)
   }
   return result
@@ -85,7 +85,7 @@ const shallowEqual = (objA, objB) => {
     return false
   }
   for (let i = 0; i < keysA.length; i++) {
-    // Object.hasOwn(objB, keysA[i]) 等价于 objB.hasOwnProperty.call(objB, keysA[i]) 
+    // Object.hasOwn(objB, keysA[i]) 等价于 objB.hasOwnProperty.call(objB, keysA[i])
     // objB.hasOwnProperty(keysA[i]) 推荐hasOwn
     if (!objB.hasOwnProperty.call(objB, keysA[i]) || !Object.is(objA[keysA[i]], objB[keysA[i]])) {
       return false
@@ -96,4 +96,38 @@ const shallowEqual = (objA, objB) => {
 
 // 日期向前推一个月
 // moment(new Date()).subtract(1, 'months').format('YYYY-MM-DD')
-export { handleDownload, getRandom, shallowEqual }
+
+// 图片url转base64：针对https下访问http图片资源被拦截的情况（<img>标签因为其不可修改仍可使用，但如果为脚本/样式会被拦截）
+function getBase64FromImageUrl(url) {
+  return new Promise((resolve, reject) => {
+    const img = new Image()
+    img.crossOrigin = 'Anonymous' // 处理跨域问题
+
+    img.onload = function () {
+      const canvas = document.createElement('canvas')
+      const ctx = canvas.getContext('2d')
+
+      // 设置canvas尺寸与图片相同
+      canvas.width = img.width
+      canvas.height = img.height
+
+      // 将图片绘制到canvas上
+      ctx.drawImage(img, 0, 0)
+
+      try {
+        // 获取Base64编码
+        const dataUrl = canvas.toDataURL('image/png')
+        resolve(dataUrl)
+      } catch (e) {
+        reject(e)
+      }
+    }
+
+    img.onerror = function () {
+      reject(new Error('Could not load image at ' + url))
+    }
+
+    img.src = url
+  })
+}
+export { handleDownload, getRandom, shallowEqual, getBase64FromImageUrl }
