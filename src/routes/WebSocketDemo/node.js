@@ -1,5 +1,5 @@
 // 1.创建后端服务：npm install ws
-// 2.创建node index.js文件，引入WebSocket服务器。命令行执行该文件
+// 2.创建node index.js文件，引入WebSocket服务器。命令行执行该文件:导航到文件所在目录，然后执行node 文件名.js
 // 3.启动成功
 // 4.前端代码检测websocket心跳
 const WebSocket = require('ws')
