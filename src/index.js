@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 
 import { routerItems } from './config/router'
 import { RouteGuard } from './routes/RouteGuard'
+import { initPerformance } from './utils/performance'
 
 import '../node_modules/antd/dist/antd.css'
 
@@ -60,5 +61,8 @@ const RouterConfig = () => {
     </Router>
   )
 }
+
+// 初始化性能监控
+initPerformance()
 
 ReactDOM.render(RouterConfig(), document.getElementById('root'))
