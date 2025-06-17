@@ -1,6 +1,6 @@
-import { action, observable, runInAction, makeAutoObservable } from 'mobx'
+import { runInAction, makeAutoObservable } from 'mobx'
 
-class CountDown {
+export class CountDown {
   // @observable count: number = 0 -- 替换为makeAutoObservable写法，@observable修饰符仍有效，但需要 makeObservable(this)
   count: number
 
@@ -40,4 +40,3 @@ class CountDown {
     }, 1000)
   }
 }
-export default CountDown

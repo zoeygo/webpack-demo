@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 
 import { routerItems } from './config/router'
 import { RouteGuard } from './routes/RouteGuard'
-import { initPerformance } from './utils/performance'
+import { initPerformance } from './utils'
 
 import '../node_modules/antd/dist/antd.css'
 
