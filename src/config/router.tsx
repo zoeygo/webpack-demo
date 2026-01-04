@@ -25,7 +25,7 @@ import PasteDemo from '@/routes/PasteDemo'
 import BlockSelect from '@/routes/BlockSelect'
 import FlowChart from '@/routes/FlowChart'
 import AntvG6 from '@/routes/AntvG6'
-// import Print from '@/routes/Print/PrintArea'
+import Print from '@/routes/Print/PrintArea'
 // import ScreenShot from '@/routes/Screenshot'
 import MarkDown from '@/routes/MarkDown'
 import Marquee from '@/routes/Marquee'
@@ -217,12 +217,12 @@ export const routerItems: Route[] = [
     element: <AntvG6 />,
   },
   // 指定区域打印
-  // {
-  //   path: '/print',
-  //   name: 'print',
-  //   meaning: '指定区域打印',
-  //   element: <Print />,
-  // },
+  {
+    path: '/print',
+    name: 'print',
+    meaning: '指定区域打印',
+    element: <Print />,
+  },
   // 自定义截图
   // {
   //   path: '/screenshot',
