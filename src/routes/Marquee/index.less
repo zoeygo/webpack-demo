@@ -1,0 +1,31 @@
+.marquee-container {
+  width: 25vw; /* 容器宽度 */
+  height: 50px; /* 容器高度 */
+  line-height: 50px;
+  border: 1px solid #000;
+  border-radius: 20px;
+  overflow: hidden; /* 内容超出时隐藏 */
+  margin: 20px;
+}
+
+.marquee-text {
+  padding: 0 10px;
+  white-space: nowrap; /* 内容不换行 */
+  display: inline-block;
+}
+
+.marquee-text-animation {
+  animation: marquee 5s linear infinite; /* 滚动动画，时间可根据需要调整 */
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}

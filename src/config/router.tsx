@@ -25,6 +25,10 @@ import PasteDemo from '@/routes/PasteDemo'
 import BlockSelect from '@/routes/BlockSelect'
 import FlowChart from '@/routes/FlowChart'
 import AntvG6 from '@/routes/AntvG6'
+// import Print from '@/routes/Print/PrintArea'
+// import ScreenShot from '@/routes/Screenshot'
+import MarkDown from '@/routes/MarkDown'
+import Marquee from '@/routes/Marquee'
 
 interface Route {
   path: string
@@ -211,5 +215,33 @@ export const routerItems: Route[] = [
     name: 'antv-g6-demo',
     meaning: 'antv/g6 demo',
     element: <AntvG6 />,
+  },
+  // 指定区域打印
+  // {
+  //   path: '/print',
+  //   name: 'print',
+  //   meaning: '指定区域打印',
+  //   element: <Print />,
+  // },
+  // 自定义截图
+  // {
+  //   path: '/screenshot',
+  //   name: 'screenshot',
+  //   meaning: '自定义截图',
+  //   element: <ScreenShot />,
+  // },
+  // markdown测试
+  {
+    path: '/markdown',
+    name: 'markdown',
+    meaning: 'markdown测试',
+    element: <MarkDown />,
+  },
+  // 文字跑马灯
+  {
+    path: '/marquee',
+    name: 'marquee',
+    meaning: 'Marquee 文字跑马灯',
+    element: <Marquee />,
   },
 ]

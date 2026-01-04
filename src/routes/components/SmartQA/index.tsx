@@ -10,7 +10,6 @@ import { CopyOutlined } from '@ant-design/icons'
 
 import type { NotificationArgsProps } from 'antd'
 
-import { getResponse } from 'utils/utils'
 import request from 'utils/request'
 import ReactMarkdown from 'react-markdown'
 import noCommentSvg from './assets/no_comment.svg'
