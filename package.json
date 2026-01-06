@@ -41,6 +41,7 @@
     "@antv/g6": "^5.0.44",
     "@babel/plugin-proposal-decorators": "^7.23.7",
     "@babel/preset-typescript": "^7.18.6",
+    "@fingerprintjs/fingerprintjs": "^5.0.1",
     "@types/jest": "^29.2.0",
     "@types/node": "^18.11.5",
     "@types/react": "^18.0.22",

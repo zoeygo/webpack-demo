@@ -29,6 +29,7 @@ import Print from '@/routes/Print/PrintArea'
 // import ScreenShot from '@/routes/Screenshot'
 import MarkDown from '@/routes/MarkDown'
 import Marquee from '@/routes/Marquee'
+import FingerPrint from '@/routes/FingerPrint'
 
 interface Route {
   path: string
@@ -243,5 +244,12 @@ export const routerItems: Route[] = [
     name: 'marquee',
     meaning: 'Marquee 文字跑马灯',
     element: <Marquee />,
+  },
+  // 浏览器指纹
+  {
+    path: '/fingerprint',
+    name: 'fingerprint',
+    meaning: '浏览器指纹',
+    element: <FingerPrint />,
   },
 ]
