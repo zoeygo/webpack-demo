@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import FingerprintJS from '@fingerprintjs/fingerprintjs'
+// import FingerprintJS from '@fingerprintjs/fingerprintjs' // 安装依赖也可使用
+import FingerprintJS from './fingerprintjs.v3.esm.min.js' // 测试minjs用：4及以上商用要收费，用v3
 
 const FingerPrint = () => {
   const [fingerprint, setFingerprint] = useState('')
