@@ -29,6 +29,16 @@ const Marquee: React.FC<any> = ({ children, alwaysScroll = true }) => {
 }
 
 const Index: React.FC<any> = () => {
-  return <Marquee alwaysScroll={true}>这是一段需要滚动显示的文本内容～</Marquee>
+  const marqueeText = ['111', '222', '333', '444']
+  return (
+    <Marquee alwaysScroll={true}>
+      {marqueeText.map((item, index) => (
+        <span key={index}>
+          {index + 1}.
+          {item}
+        </span>
+      ))}
+    </Marquee>
+  )
 }
 export default Index

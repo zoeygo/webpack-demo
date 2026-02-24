@@ -130,4 +130,10 @@ function getBase64FromImageUrl(url) {
     img.src = url
   })
 }
-export { handleDownload, getRandom, shallowEqual, getBase64FromImageUrl }
+
+// 判断是否为对象
+function isObject(x) {
+  return Object.prototype.toString.call(x) === '[object Object]'
+}
+
+export { handleDownload, getRandom, shallowEqual, getBase64FromImageUrl, isObject }
