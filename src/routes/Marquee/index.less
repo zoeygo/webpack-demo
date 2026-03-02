@@ -9,29 +9,36 @@
 }
 
 .marquee-text {
+  width: calc(100% - 20px);
   padding: 0 10px;
   white-space: nowrap; /* 内容不换行 */
   display: inline-block;
+  overflow: hidden;
+}
+
+.marquee-text-animation {
+  display: inline-block;
+  white-space: nowrap;
+  // 使用 CSS 变量控制动画时长，默认 6s 保持兼容性
+  animation: marquee var(--animation-duration, 10s) linear infinite normal;
+  &:hover {
+    animation-play-state: paused;
+  }
   > span {
-    margin-right: 24px;
+    margin-right: 200px;
   }
   > span:last-child {
     margin-right: 0;
   }
 }
 
-.marquee-text-animation {
-  animation: marquee 5s linear infinite; /* 滚动动画，时间可根据需要调整 */
-  &:hover {
-    animation-play-state: paused;
-  }
-}
-
 @keyframes marquee {
   0% {
-    transform: translateX(100%);
+    transform: translateX(25vw);
+    -webkit-transform: translateX(25vw);
   }
   100% {
     transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
   }
 }
